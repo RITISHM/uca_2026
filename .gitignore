@@ -56,3 +56,6 @@ dkms.conf
 
 # class file 
 *.class
+
+# binary executable c file
+bin/
