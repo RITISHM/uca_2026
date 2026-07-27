@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="users"></div>
+    <script>
+      //sir dummyapi.com site didnt existes so I choose dummy json and it didnt have the property of active inactive so I am displaying age
+      const worker = new Worker("./fetchWorker.js");
+      worker.postMessage("https://dummyjson.com/users");
+      const usersDiv = document.querySelector("#users");
+      worker.onmessage = (event) => {
+        if (event.data.error == "null") {
+          const users = event.data.res.users;
+          users.forEach((user) => {
+            const p = document.createElement("p");
+            p.textContent = `Name: ${user.firstName}, Age: ${user.age}`;
+            usersDiv.appendChild(p);
+          });
+        } else {
+          usersDiv.textContent = `No users found , got error : ${event.data.error}`;
+        }
+      };
+    </script>
+  </body>
+</html>
