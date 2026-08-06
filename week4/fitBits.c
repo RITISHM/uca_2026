@@ -11,6 +11,6 @@ int fitsBits(int x, int n) {
 
 int main() {
 
-    printf( "%d\n", fitsBits(-4, 3) );
+    printf( "%d\n", fitsBits(5, 4) );
     return 0;
 }

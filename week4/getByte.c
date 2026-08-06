@@ -7,7 +7,7 @@ int getByte( int x, int n ) {
 }
 
 int main() {
-  printf("%X\n", getByte(0x12345678, 1));
+  printf("0x%X\n", getByte(0x12345678, 1));
 
   return 0;
 
